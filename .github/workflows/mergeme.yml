@@ -11,5 +11,7 @@ jobs:
    steps:
      - run: | # approve the pull request
          curl  -X PUT \
+         -H 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
          -H "Accept: application/vnd.github.v3+json" \
+         -d “{\”commit_message\”: \”Nothing to see here\”}” \
          --url https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.number}}/merge
