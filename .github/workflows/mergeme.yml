@@ -1,0 +1,14 @@
+name: MERGEME
+ 
+on: pull_request # run on pull request events
+ 
+permissions:
+ pull-requests: write # grant write permission on the pull-requests endpoint
+jobs:
+ merge:
+   runs-on: ubuntu-latest
+ 
+   steps:
+     - run: | # approve the pull request
+         curl -H "Accept: application/vnd.github.v3+json" \
+         --url https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.number}}/file
